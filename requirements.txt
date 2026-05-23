@@ -1,0 +1,24 @@
+streamlit==1.35.0
+pyngrok==7.2.6
+
+# -----------------------------------
+# Project Requirements
+# -----------------------------------
+
+# streamlit
+# Used to build the web application UI
+
+# pyngrok
+# Used to generate a public URL for Streamlit
+# while running in Google Colab
+
+# sqlite3
+# Used for database storage
+# (Built into Python, no installation needed)
+
+# random
+# Used for quiz randomization
+# (Built into Python)
+
+# Recommended Python Version:
+# Python 3.10 or above
