@@ -1,0 +1,162 @@
+# ▶️ Steps to Run the Project
+
+## Step 1 — Install Required Libraries
+
+Run this command in Google Colab:
+
+```python
+!pip install streamlit pyngrok
+```
+
+---
+
+## Step 2 — Save the Python File
+
+Paste the complete code in a Colab cell.
+
+The first line should be:
+
+```python
+%%writefile app.py
+```
+
+Run the cell.
+
+You will get:
+
+```text
+Writing app.py
+```
+
+OR
+
+```text
+Overwriting app.py
+```
+
+---
+
+## Step 3 — Run Streamlit Application
+
+Create a new cell and run:
+
+```python
+!streamlit run app.py &>/content/logs.txt &
+```
+
+Wait for 10 seconds.
+
+---
+
+## Step 4 — Add Ngrok Authentication Token
+
+Create another new cell:
+
+```python
+!ngrok config add-authtoken YOUR_NGROK_TOKEN
+```
+
+Replace:
+
+```text
+YOUR_NGROK_TOKEN
+```
+
+with your actual ngrok token.
+
+Get token from:
+
+https://dashboard.ngrok.com/get-started/your-authtoken
+
+---
+
+## Step 5 — Generate Public URL
+
+Create another new cell:
+
+```python
+from pyngrok import ngrok
+
+public_url = ngrok.connect(8501)
+
+print(public_url)
+```
+
+---
+
+## Step 6 — Open the Generated Link
+
+You will get output like:
+
+```text
+https://abcd1234.ngrok-free.app
+```
+
+Click the link.
+
+Your QuizGenius AI application will open successfully.
+
+---
+
+# ✅ Application Workflow
+
+```text
+Enter Name
+     ↓
+Select Topic
+     ↓
+Generate Quiz
+     ↓
+Answer Questions
+     ↓
+Submit Quiz
+     ↓
+View Score
+     ↓
+Save Score
+```
+
+---
+
+# ⚠️ Important Notes
+
+- Do not upload ngrok token to GitHub.
+- Run all cells in order.
+- If Colab disconnects, rerun Streamlit and ngrok cells.
+- Keep app.py in the same folder.
+
+---
+
+# 🛠️ Troubleshooting
+
+## If App Does Not Open
+
+Run:
+
+```python
+!cat /content/logs.txt
+```
+
+to check errors.
+
+---
+
+## If Ngrok Gives Error
+
+Re-add token:
+
+```python
+!ngrok config add-authtoken YOUR_NGROK_TOKEN
+```
+
+---
+
+## If Quiz Does Not Display
+
+Restart Streamlit:
+
+```python
+!streamlit run app.py &>/content/logs.txt &
+```
+
+---
